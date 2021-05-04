@@ -1,0 +1,301 @@
+## Importation des bases de données
+
+On récupère les bases de données Google Trends.
+
+```{r imports base de données}
+allem_all <- read.csv("~/Desktop/Papier Trends et vaccins/Trendy/extraction finale/Allemagne/allem_all.csv")
+aust_all <- read.csv("~/Desktop/Papier Trends et vaccins/Trendy/extraction finale/Australie/aust_all.csv")
+calif_all <- read.csv("~/Desktop/Papier Trends et vaccins/Trendy/extraction finale/Californie/calif_all.csv")
+fr_all <- read.csv("~/Desktop/Papier Trends et vaccins/Trendy/extraction finale/France/fr_all.csv", sep=";")
+ita_all <- read.csv("~/Desktop/Papier Trends et vaccins/extraction finale/Italie/ita_all.csv")
+serb_all <- read.csv("~/Desktop/Papier Trends et vaccins/Trendy/extraction finale/Serbie/serb_all.csv")
+wash_all <- read.csv("~/Desktop/Papier Trends et vaccins/Trendy/extraction finale/Washington/wash_all.csv")
+```
+
+## Restriction aux requêtes sur la vaccination en général
+
+You can also embed plots, for example:
+
+```{r vaccine general}
+allem_gen <- allem_all[,2]
+aust_gen <- aust_all[,2]
+calif_gen <- calif_all[,2]
+fr_gen <- fr_all[,2]
+ita_gen <- ita_all[,2]
+serb_gen <- serb_all[,2]
+wash_gen <- wash_all[,2]
+```
+
+## Restriction aux requêtes sur les risques de la vaccination
+
+```{r vaccine risk germany}
+allem_risk <- read.csv("~/Desktop/Papier Trends et vaccins/extraction finale/Allemagne/allem_side.csv")
+allem_risk_gen <- allem_risk[,2]
+allem_risk_spec <- allem_risk[,3]
+```
+
+```{r vaccine risk australia}
+aust_risk <- read.csv("~/Desktop/Papier Trends et vaccins/extraction finale/Australie/aust_side.csv")
+aust_risk_gen <- aust_risk[,2]
+aust_risk_spec <- aust_risk[,3]
+```
+
+```{r vaccine risk california}
+calif_risk <- read.csv("~/Desktop/Papier Trends et vaccins/extraction finale/Californie/calif_side.csv")
+calif_risk_gen <- calif_risk[,2]
+calif_risk_spec <- calif_risk[,3]
+```
+
+```{r vaccine risk france}
+fr_risk <- read.csv("~/Desktop/Papier Trends et vaccins/extraction finale/France/fr_side.csv")
+fr_risk_gen <- fr_risk[,2]
+fr_risk_spec <- fr_risk[,3]
+```
+
+```{r vaccine risk italy}
+ita_risk <- read.csv("~/Desktop/Papier Trends et vaccins/extraction finale/Italie/ita_side.csv")
+ita_risk_gen <- ita_risk[,2]
+ita_risk_spec <- ita_risk[,3]
+```
+
+```{r vaccine risk serbia}
+serb_risk <- read.csv("~/Desktop/Papier Trends et vaccins/extraction finale/Serbie/serb_side.csv")
+serb_risk_gen <- serb_risk[,2]
+serb_risk_spec <- serb_risk[,3]
+```
+
+```{r vaccine risk washington}
+wash_risk <- read.csv("~/Desktop/Papier Trends et vaccins/extraction finale/Washington/wash_side.csv")
+wash_risk_gen <- wash_risk[,2]
+wash_risk_spec <- wash_risk[,3]
+```
+
+
+## Outlier detection
+
+### Germany
+
+```{r outlier detection}
+library(tsoutliers)
+allem.ts<- ts(allem_gen,frequency=1)
+allem.ts.outliers <- tso(allem.ts)
+allem.ts.outliers
+plot(allem.ts.outliers)
+```
+
+### Australia
+
+```{r outlier detection}
+library(tsoutliers)
+aust.ts<- ts(aust_gen,frequency=1)
+aust.ts.outliers <- tso(aust.ts)
+aust.ts.outliers
+plot(aust.ts.outliers)
+```
+
+### California
+
+```{r outlier detection}
+library(tsoutliers)
+calif.ts<- ts(calif_gen,frequency=1)
+calif.ts.outliers <- tso(calif.ts)
+calif.ts.outliers
+plot(calif.ts.outliers)
+```
+
+### France
+
+```{r outlier detection}
+library(tsoutliers)
+fr.ts<- ts(fr_gen,frequency=1)
+fr.ts.outliers <- tso(fr.ts)
+fr.ts.outliers
+plot(fr.ts.outliers)
+```
+
+### Italy
+
+```{r outlier detection}
+library(tsoutliers)
+ita.ts<- ts(ita_gen,frequency=1)
+ita.ts.outliers <- tso(ita.ts)
+ita.ts.outliers
+plot(ita.ts.outliers)
+```
+
+### Serbia
+
+```{r outlier detection}
+library(tsoutliers)
+serb.ts<- ts(serb_gen,frequency=1)
+serb.ts.outliers <- tso(serb.ts)
+serb.ts.outliers
+plot(serb.ts.outliers)
+```
+
+### Washington
+
+```{r outlier detection washington}
+library(tsoutliers)
+wash.ts<- ts(wash_gen,frequency=1)
+wash.ts.outliers <- tso(wash.ts)
+wash.ts.outliers
+plot(wash.ts.outliers)
+```
+
+## Outlier detection: risks
+
+### Germany (risks)
+
+#### General
+
+```{r outlier detection}
+library(tsoutliers)
+allem_risk_gen.ts<- ts(allem_risk_gen,allemequency=1)
+allem_risk_gen.ts.outliers <- tso(allem_risk.ts)
+allem_risk_gen.ts.outliers
+plot(allem_risk_gen.ts.outliers)
+```
+
+#### Specific
+
+```{r outlier detection}
+library(tsoutliers)
+allem_risk_spec.ts<- ts(allem_risk_spec,frequency=1)
+allem_risk_spec.ts.outliers <- tso(allem_risk_spec.ts)
+allem_risk_spec.ts.outliers
+plot(allem_risk_spec.ts.outliers)
+```
+
+### Australia (risks)
+
+#### General
+
+```{r outlier detection}
+library(tsoutliers)
+aust_risk_gen.ts<- ts(aust_risk_gen,frequency=1)
+aust_risk_gen.ts.outliers <- tso(aust_risk_gen.ts)
+aust_risk_gen.ts.outliers
+plot(aust_risk_gen.ts.outliers)
+```
+
+#### Specific
+
+```{r outlier detection}
+library(tsoutliers)
+aust_risk_spec.ts<- ts(aust_risk_spec,frequency=1)
+aust_risk_spec.ts.outliers <- tso(aust_risk_spec.ts)
+aust_risk_spec.ts.outliers
+plot(aust_risk_spec.ts.outliers)
+```
+
+### California (risks)
+
+#### General
+
+```{r outlier detection}
+library(tsoutliers)
+calif_risk_gen.ts<- ts(calif_risk_gen,frequency=1)
+calif_risk_gen.ts.outliers <- tso(calif_risk_gen.ts)
+calif_risk_gen.ts.outliers
+plot(calif_risk_gen.ts.outliers)
+```
+
+#### Specific
+
+```{r outlier detection}
+library(tsoutliers)
+calif_risk_spec.ts<- ts(calif_risk_spec,frequency=1)
+calif_risk_spec.ts.outliers <- tso(calif_risk_spec.ts)
+calif_risk_spec.ts.outliers
+plot(calif_risk_spec.ts.outliers)
+```
+
+### France (risks)
+
+#### General
+
+```{r outlier detection}
+library(tsoutliers)
+fr_risk_gen.ts<- ts(fr_risk_gen,frequency=1)
+fr_risk_gen.ts.outliers <- tso(fr_risk.ts)
+fr_risk_gen.ts.outliers
+plot(fr_risk_gen.ts.outliers)
+```
+
+#### Specific
+
+```{r outlier detection}
+library(tsoutliers)
+fr_risk_spec.ts<- ts(fr_risk_spec,frequency=1)
+fr_risk_spec.ts.outliers <- tso(fr_risk.ts)
+fr_risk_spec.ts.outliers
+plot(fr_risk_spec.ts.outliers)
+```
+
+### Italy
+
+#### General
+
+```{r outlier detection}
+library(tsoutliers)
+ita_risk_gen.ts<- ts(ita_risk_gen,frequency=1)
+ita_risk_gen.ts.outliers <- tso(ita_risk_gen.ts)
+ita_risk_gen.ts.outliers
+plot(ita_risk_gen.ts.outliers)
+```
+
+#### Specific
+
+```{r outlier detection}
+library(tsoutliers)
+ita_risk_spec.ts<- ts(ita_risk_spec,frequency=1)
+ita_risk_spec.ts.outliers <- tso(ita_risk_spec.ts)
+ita_risk_spec.ts.outliers
+plot(ita_risk_spec.ts.outliers)
+```
+
+###Serbia (risks)
+
+#### General
+
+```{r outlier detection}
+library(tsoutliers)
+serb_risk_gen.ts<- ts(serb_risk_gen,frequency=1)
+serb_risk_gen.ts.outliers <- tso(serb_risk_gen.ts)
+serb_risk_gen.ts.outliers
+plot(serb_risk_gen.ts.outliers)
+```
+
+#### Specific
+
+```{r outlier detection}
+library(tsoutliers)
+serb_risk_spec.ts<- ts(serb_risk_spec,frequency=1)
+serb_risk_spec.ts.outliers <- tso(serb_risk_spec.ts)
+serb_risk_spec.ts.outliers
+plot(serb_risk_spec.ts.outliers)
+```
+
+### Washington (risks)
+
+#### General
+
+
+```{r outlier detection}
+library(tsoutliers)
+wash_risk_gen.ts<- ts(wash_risk_gen,frequency=1)
+wash_risk_gen.ts.outliers <- tso(wash_risk_gen.ts)
+wash_risk_gen.ts.outliers
+plot(wash_risk_gen.ts.outliers)
+```
+
+#### Specific
+
+```{r outlier detection}
+library(tsoutliers)
+wash_risk_spec.ts<- ts(wash_risk_spec,frequency=1)
+wash_risk_spec.ts.outliers <- tso(wash_risk_spec.ts)
+wash_risk_spec.ts.outliers
+plot(wash_risk_spec.ts.outliers)
+```
