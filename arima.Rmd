@@ -75,62 +75,62 @@ wash_risk_spec <- wash_risk[,3]
 
 ### Germany
 
-```{r outlier detection}
+```{r outlier detection germany}
 library(tsoutliers)
 allem.ts<- ts(allem_gen,frequency=1)
 allem.ts.outliers <- tso(allem.ts)
 allem.ts.outliers
-plot(allem.ts.outliers)
+plot(allem.ts.outliers, args.x.axis = list(at = time(allem.ts.outliers$y), labels=allem_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### Australia
 
-```{r outlier detection}
+```{r outlier detection australia}
 library(tsoutliers)
 aust.ts<- ts(aust_gen,frequency=1)
 aust.ts.outliers <- tso(aust.ts)
 aust.ts.outliers
-plot(aust.ts.outliers)
+plot(aust.ts.outliers, args.x.axis = list(at = time(aust.ts.outliers$y), labels=aust_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### California
 
-```{r outlier detection}
+```{r outlier detection california}
 library(tsoutliers)
 calif.ts<- ts(calif_gen,frequency=1)
 calif.ts.outliers <- tso(calif.ts)
 calif.ts.outliers
-plot(calif.ts.outliers)
+plot(calif.ts.outliers, args.x.axis = list(at = time(calif.ts.outliers$y), labels=calif_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### France
 
-```{r outlier detection}
+```{r outlier detection france}
 library(tsoutliers)
 fr.ts<- ts(fr_gen,frequency=1)
 fr.ts.outliers <- tso(fr.ts)
 fr.ts.outliers
-plot(fr.ts.outliers)
+plot(fr.ts.outliers, args.x.axis = list(at = time(fr.ts.outliers$y), labels=fr_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### Italy
 
-```{r outlier detection}
+```{r outlier detection italy}
 library(tsoutliers)
 ita.ts<- ts(ita_gen,frequency=1)
 ita.ts.outliers <- tso(ita.ts)
 ita.ts.outliers
-plot(ita.ts.outliers)
+plot(ita.ts.outliers, args.x.axis = list(at = time(ita.ts.outliers$y), labels=ita_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### Serbia
 
-```{r outlier detection}
+```{r outlier detection serbia}
 library(tsoutliers)
 serb.ts<- ts(serb_gen,frequency=1)
 serb.ts.outliers <- tso(serb.ts)
 serb.ts.outliers
-plot(serb.ts.outliers)
+plot(serb.ts.outliers, args.x.axis = list(at = time(serb.ts.outliers$y), labels=serb_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### Washington
@@ -140,7 +140,7 @@ library(tsoutliers)
 wash.ts<- ts(wash_gen,frequency=1)
 wash.ts.outliers <- tso(wash.ts)
 wash.ts.outliers
-plot(wash.ts.outliers)
+plot(wash.ts.outliers, args.x.axis = list(at = time(wash.ts.outliers$y), labels=wash_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ## Outlier detection: risks
@@ -149,132 +149,134 @@ plot(wash.ts.outliers)
 
 #### General
 
-```{r outlier detection}
+```{r outlier detection risk germany}
 library(tsoutliers)
-allem_risk_gen.ts<- ts(allem_risk_gen,allemequency=1)
-allem_risk_gen.ts.outliers <- tso(allem_risk.ts)
+allem_risk_gen.ts<- ts(allem_risk_gen,frequency=1)
+allem_risk_gen.ts.outliers <- tso(allem_risk_gen.ts)
 allem_risk_gen.ts.outliers
-plot(allem_risk_gen.ts.outliers)
+plot(allem_risk_gen.ts.outliers, args.x.axis = list(at = time(allem_risk_gen.ts.outliers$y), labels=allem_all$Mois, las=2), cex.axis=0.65)
 ```
 
 #### Specific
 
-```{r outlier detection}
+```{r outlier detection specific risk germany}
 library(tsoutliers)
 allem_risk_spec.ts<- ts(allem_risk_spec,frequency=1)
 allem_risk_spec.ts.outliers <- tso(allem_risk_spec.ts)
 allem_risk_spec.ts.outliers
-plot(allem_risk_spec.ts.outliers)
+plot(allem_risk_spec.ts.outliers, args.x.axis = list(at = time(allem_risk_spec.ts.outliers$y), labels=allem_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### Australia (risks)
 
 #### General
 
-```{r outlier detection}
+```{r outlier detection risk australia}
 library(tsoutliers)
 aust_risk_gen.ts<- ts(aust_risk_gen,frequency=1)
 aust_risk_gen.ts.outliers <- tso(aust_risk_gen.ts)
 aust_risk_gen.ts.outliers
-plot(aust_risk_gen.ts.outliers)
+plot(aust_risk_gen.ts.outliers, args.x.axis = list(at = time(aust_risk_gen.ts.outliers$y), labels=aust_all$Mois, las=2), cex.axis=0.65)
 ```
 
 #### Specific
 
-```{r outlier detection}
+```{r outlier detection specific risk australia}
 library(tsoutliers)
 aust_risk_spec.ts<- ts(aust_risk_spec,frequency=1)
 aust_risk_spec.ts.outliers <- tso(aust_risk_spec.ts)
 aust_risk_spec.ts.outliers
-plot(aust_risk_spec.ts.outliers)
+plot(aust_risk_spec.ts.outliers, args.x.axis = list(at = time(aust_risk_spec.ts.outliers$y), labels=aust_all$Mois, las=2), cex.axis=0.65)
+
 ```
 
 ### California (risks)
 
 #### General
 
-```{r outlier detection}
+```{r outlier detection risk california}
 library(tsoutliers)
 calif_risk_gen.ts<- ts(calif_risk_gen,frequency=1)
 calif_risk_gen.ts.outliers <- tso(calif_risk_gen.ts)
 calif_risk_gen.ts.outliers
-plot(calif_risk_gen.ts.outliers)
+plot(calif_risk_gen.ts.outliers, args.x.axis = list(at = time(calif_risk_gen.ts.outliers$y), labels=calif_all$Mois, las=2), cex.axis=0.65)
 ```
 
 #### Specific
 
-```{r outlier detection}
+```{r outlier detection specific risk california}
 library(tsoutliers)
 calif_risk_spec.ts<- ts(calif_risk_spec,frequency=1)
 calif_risk_spec.ts.outliers <- tso(calif_risk_spec.ts)
 calif_risk_spec.ts.outliers
 plot(calif_risk_spec.ts.outliers)
+plot(calif_risk_spec.ts.outliers, args.x.axis = list(at = time(calif_risk_spec.ts.outliers$y), labels=calif_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### France (risks)
 
 #### General
 
-```{r outlier detection}
+```{r outlier detection risk france}
 library(tsoutliers)
 fr_risk_gen.ts<- ts(fr_risk_gen,frequency=1)
-fr_risk_gen.ts.outliers <- tso(fr_risk.ts)
+fr_risk_gen.ts.outliers <- tso(fr_risk_gen.ts)
 fr_risk_gen.ts.outliers
-plot(fr_risk_gen.ts.outliers)
+plot(fr_risk_gen.ts.outliers, args.x.axis = list(at = time(fr_risk_gen.ts.outliers$y), labels=fr_all$Mois, las=2), cex.axis=0.65)
 ```
 
 #### Specific
 
-```{r outlier detection}
+```{r outlier detection specific risk france}
 library(tsoutliers)
 fr_risk_spec.ts<- ts(fr_risk_spec,frequency=1)
-fr_risk_spec.ts.outliers <- tso(fr_risk.ts)
+fr_risk_spec.ts.outliers <- tso(fr_risk_spec.ts)
 fr_risk_spec.ts.outliers
-plot(fr_risk_spec.ts.outliers)
+plot(fr_risk_spec.ts.outliers, args.x.axis = list(at = time(fr_risk_spec.ts.outliers$y), labels=fr_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### Italy
 
 #### General
 
-```{r outlier detection}
+```{r outlier detection risk italy}
 library(tsoutliers)
 ita_risk_gen.ts<- ts(ita_risk_gen,frequency=1)
 ita_risk_gen.ts.outliers <- tso(ita_risk_gen.ts)
 ita_risk_gen.ts.outliers
-plot(ita_risk_gen.ts.outliers)
+plot(ita_risk_gen.ts.outliers, args.x.axis = list(at = time(ita_risk_gen.ts.outliers$y), labels=ita_all$Mois, las=2), cex.axis=0.65)
 ```
 
 #### Specific
 
-```{r outlier detection}
+```{r outlier detection specific risk italy}
 library(tsoutliers)
 ita_risk_spec.ts<- ts(ita_risk_spec,frequency=1)
 ita_risk_spec.ts.outliers <- tso(ita_risk_spec.ts)
 ita_risk_spec.ts.outliers
-plot(ita_risk_spec.ts.outliers)
+plot(ita_risk_spec.ts.outliers, args.x.axis = list(at = time(ita_risk_spec.ts.outliers$y), labels=ita_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ###Serbia (risks)
 
 #### General
 
-```{r outlier detection}
+```{r outlier detection risk serbia}
 library(tsoutliers)
 serb_risk_gen.ts<- ts(serb_risk_gen,frequency=1)
 serb_risk_gen.ts.outliers <- tso(serb_risk_gen.ts)
 serb_risk_gen.ts.outliers
-plot(serb_risk_gen.ts.outliers)
+plot(serb_risk_gen.ts.outliers, args.x.axis = list(at = time(serb_risk_gen.ts.outliers$y), labels=serb_all$Mois, las=2), cex.axis=0.65)
 ```
 
 #### Specific
 
-```{r outlier detection}
+```{r outlier detection specific risk serbia}
 library(tsoutliers)
 serb_risk_spec.ts<- ts(serb_risk_spec,frequency=1)
 serb_risk_spec.ts.outliers <- tso(serb_risk_spec.ts)
 serb_risk_spec.ts.outliers
-plot(serb_risk_spec.ts.outliers)
+plot(serb_risk_spec.ts.outliers, args.x.axis = list(at = time(serb_risk_spec.ts.outliers$y), labels=serb_all$Mois, las=2), cex.axis=0.65)
 ```
 
 ### Washington (risks)
@@ -282,20 +284,20 @@ plot(serb_risk_spec.ts.outliers)
 #### General
 
 
-```{r outlier detection}
+```{r outlier detection risk washington}
 library(tsoutliers)
 wash_risk_gen.ts<- ts(wash_risk_gen,frequency=1)
 wash_risk_gen.ts.outliers <- tso(wash_risk_gen.ts)
 wash_risk_gen.ts.outliers
-plot(wash_risk_gen.ts.outliers)
+plot(wash_risk_gen.ts.outliers, args.x.axis = list(at = time(wash_risk_gen.ts.outliers$y), labels=wash_all$Mois, las=2), cex.axis=0.65)
 ```
 
 #### Specific
 
-```{r outlier detection}
+```{r outlier detection specific risk washington}
 library(tsoutliers)
 wash_risk_spec.ts<- ts(wash_risk_spec,frequency=1)
 wash_risk_spec.ts.outliers <- tso(wash_risk_spec.ts)
 wash_risk_spec.ts.outliers
-plot(wash_risk_spec.ts.outliers)
+plot(wash_risk_spec.ts.outliers, args.x.axis = list(at = time(wash_risk_spec.ts.outliers$y), labels=wash_all$Mois, las=2), cex.axis=0.65)
 ```
