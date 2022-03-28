@@ -1,6 +1,6 @@
-## Importation des bases de données
+## Importing data
 
-On récupère les bases de données Google Trends.
+The Google Trends data are imported as standard csv.
 
 ```{r imports base de données}
 allem_all <- read.csv("~/Desktop/Papier Trends et vaccins/Trendy/extraction finale/Allemagne/allem_all.csv")
@@ -12,9 +12,9 @@ serb_all <- read.csv("~/Desktop/Papier Trends et vaccins/Trendy/extraction final
 wash_all <- read.csv("~/Desktop/Papier Trends et vaccins/Trendy/extraction finale/Washington/wash_all.csv")
 ```
 
-## Restriction aux requêtes sur la vaccination en général
+## Restriction to queries about vaccination in general
 
-You can also embed plots, for example:
+We first focus on the queries regarding vaccines in general.
 
 ```{r vaccine general}
 allem_gen <- allem_all[,2]
@@ -26,7 +26,7 @@ serb_gen <- serb_all[,2]
 wash_gen <- wash_all[,2]
 ```
 
-## Restriction aux requêtes sur les risques de la vaccination
+## Restriction to queries about vaccination risks (general and specific)
 
 ```{r vaccine risk germany}
 allem_risk <- read.csv("~/Desktop/Papier Trends et vaccins/extraction finale/Allemagne/allem_side.csv")
@@ -72,6 +72,8 @@ wash_risk_spec <- wash_risk[,3]
 
 
 ## Outlier detection
+
+We use the package tsoutliers to detect possible outliers and understand their nature.
 
 ### Germany
 
